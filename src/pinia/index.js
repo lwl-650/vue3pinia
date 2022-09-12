@@ -42,7 +42,8 @@ export const useStore = defineStore('storeId', {
      * @param {*} value 
      */
     changeState(value) {
-      this.counter + value
+      console.log(value)
+      this.name+=value
 
     },
     getList() {

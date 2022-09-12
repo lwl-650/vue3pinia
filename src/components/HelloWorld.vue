@@ -31,7 +31,7 @@ const handleClickPatch = () => {
       {{ name }}
     </button>
     <button @click="handleClickPatch">点击增加 - patch</button>
-
+    <button @click="()=>{store.changeState('这是active')}">点击改变active</button>
     <p>
       Edit
       <code>components/HelloWorld.vue</code> to test HMR
