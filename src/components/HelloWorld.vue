@@ -11,6 +11,14 @@ defineProps({
 });
 
 const count = ref(0);
+
+
+const handleClickPatch = () => {
+    store.$patch({
+      name:store.name + 2 
+    })
+}
+
 </script>
 
 <template>
@@ -19,16 +27,10 @@ const count = ref(0);
   <div class="card">
     <button type="button" @click="count++">count is {{ count }}</button>
 
-    <button
-      type="button"
-      @click="
-        () => {
-          name = '改变后';
-        }
-      "
-    >
+    <button type="button" @click=" () => { name = '改变后'} ">
       {{ name }}
     </button>
+    <button @click="handleClickPatch">点击增加 - patch</button>
 
     <p>
       Edit

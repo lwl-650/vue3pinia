@@ -1,13 +1,18 @@
 <script setup>
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
-import HelloWorld from './components/HelloWorld.vue'
-import { useStore } from '../src/pinia/index'
-import { storeToRefs } from 'pinia'
+import HelloWorld from "./components/HelloWorld.vue";
+import { useStore } from "../src/pinia/index";
+import { storeToRefs } from "pinia";
+import { reactive } from "vue";
 
-const store = useStore()
-const { name ,isAdmin} = storeToRefs(store)
+const store = useStore();
+const { name, isAdmin, doubleCount, doubleCountPlusOne, getList } =
+  storeToRefs(store);
 
+const arr = reactive(["zj", "sd"]);
+const bigarr = store.getList()
+console.log(arr);
 </script>
 
 <template>
@@ -19,8 +24,11 @@ const { name ,isAdmin} = storeToRefs(store)
       <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
     </a>
   </div>
-  <h1>{{name}}+++</h1>
-  <h1>{{isAdmin}}+++</h1>
+  <h1>{{ name }}+++</h1>
+  <h1>{{ isAdmin }}+++</h1>
+  <h2>{{ doubleCount }}===={{ doubleCountPlusOne }}</h2>
+  <h1 v-for="item in arr" :key="item">{{ item }}22</h1>
+  <h1 v-for="item in bigarr" :key="item">{{ item }}33</h1>
   <HelloWorld msg="Vite + Vue" />
 </template>
 
